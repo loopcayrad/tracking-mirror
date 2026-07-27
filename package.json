@@ -1,0 +1,17 @@
+{
+  "name": "tracking-mirror",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Tracking Mirror — 手指追踪特效 + 人脸 emoji 替换 + 视频导出",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "devDependencies": {
+    "vite": "^6.4.3",
+    "@mediapipe/face_detection": "^0.4.1646425229",
+    "@mediapipe/hands": "^0.4.1675469240"
+  }
+}

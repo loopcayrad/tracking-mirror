@@ -1,0 +1,13 @@
+# 依赖
+node_modules/
+
+# 构建产物（vite build 生成）
+dist/
+
+# 缓存
+.cache/
+.vite/
+
+# 临时
+*.log
+*.local
