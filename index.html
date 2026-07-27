@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracking Mirror — 追踪特效镜</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="./assets/index-BGDvgsud.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-dI0VzRMW.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+</head>
+  <body>
+    <header class="topbar" data-od-id="topbar">
+      <span class="brand">Tracking Mirror</span>
+      <span class="cam-indicator" id="camIndicator" data-state="idle" title="相机状态"></span>
+    </header>
+
+    <main class="stage" data-od-id="camera-stage">
+      <div class="canvas-wrap" id="canvasWrap">
+        <video id="cam" playsinline muted autoplay></video>
+        <canvas id="fx"></canvas>
+        <div class="start-overlay" id="startOverlay" data-od-id="start-overlay">
+          <button class="start-btn" id="overlayStartBtn" aria-label="开启摄像头">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+          </button>
+          <p class="start-hint">点击开启摄像头</p>
+        </div>
+        <div class="loading-overlay" id="loadingOverlay" style="display:none">
+          <div class="loading-content">
+            <div class="spinner"></div>
+            <p class="loading-stage" id="loadingStage">正在初始化...</p>
+            <p class="loading-detail" id="loadingDetail">准备中</p>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p class="loading-percent" id="loadingPercent">0%</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="controls" data-od-id="controls-bar">
+      <div class="control-group" data-od-id="filter-selector">
+        <label for="filterSelect">特效</label>
+        <select id="filterSelect">
+          <optgroup label="基础">
+            <option value="grayscale">黑白</option>
+            <option value="invert">反色</option>
+          </optgroup>
+          <optgroup label="创意">
+            <option value="halftone" selected>波点</option>
+            <option value="crt">CRT扫描线</option>
+            <option value="ascii">ASCII</option>
+            <option value="pixelate">像素</option>
+          </optgroup>
+          <optgroup label="模式">
+            <option value="mixed">混合（每面不同）</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="control-group" data-od-id="shape-selector">
+        <label for="shapeSelect">手指数</label>
+        <select id="shapeSelect">
+          <option value="2fingers">2指</option>
+          <option value="3fingers">3指</option>
+          <option value="4fingers">4指</option>
+          <option value="5fingers">5指</option>
+        </select>
+      </div>
+      <div class="control-group" data-od-id="action-buttons">
+        <button id="faceBtn" class="btn" disabled aria-label="人脸替换">😀</button>
+        <button id="resBtn" class="btn primary" disabled aria-label="切换分辨率">原画面</button>
+        <button id="recBtn" class="btn" disabled aria-label="开始录制">开始录制</button>
+        <a id="downloadLink" class="btn ghost hidden" download aria-label="下载录制视频">下载 MP4</a>
+      </div>
+    </footer>
+
+    <div id="recTimer" class="rec-timer hidden" data-od-id="recording-timer">00:00</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection@0.4.1646425229/face_detection.js" crossorigin="anonymous"></script>
+</body>
+</html>
